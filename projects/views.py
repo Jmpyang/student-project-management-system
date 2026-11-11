@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ProjectForm
@@ -8,7 +7,15 @@ from .models import Project
 
 
 def home(request):
-    return HttpResponse("Welcome to the Student Project Management System")
+    return render(
+        request,
+        "projects/home.html",
+        {
+            "welcome_message": (
+                "Welcome to the Student Project Management System"
+            ),
+        },
+    )
 
 
 def project_list(request):

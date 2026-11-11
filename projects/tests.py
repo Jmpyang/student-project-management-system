@@ -35,8 +35,24 @@ class ProjectManagementTests(TestCase):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
-            response.content,
-            b"Welcome to the Student Project Management System",
+            response.context["welcome_message"],
+            "Welcome to the Student Project Management System",
+        )
+        self.assertContains(
+            response,
+            "<h1>Welcome to the Student Project Management System</h1>",
+        )
+        self.assertContains(
+            response,
+            f'href="{reverse("home")}"',
+        )
+        self.assertContains(
+            response,
+            f'href="{reverse("project_list")}"',
+        )
+        self.assertContains(
+            response,
+            f'href="{reverse("project_create")}"',
         )
 
         response = self.client.get(reverse("project_list"))
@@ -46,8 +62,25 @@ class ProjectManagementTests(TestCase):
         self.assertContains(response, "Computing")
         self.assertContains(response, 'href="/static/projects/css/style.css"')
 
+    def test_navigation_links_open_their_named_pages(self):
+        projects_response = self.client.get(reverse("project_list"))
+        self.assertEqual(projects_response.status_code, 200)
+        self.assertContains(projects_response, "Library Portal")
+
+        self.client.force_login(self.user)
+        add_project_response = self.client.get(reverse("project_create"))
+        self.assertEqual(add_project_response.status_code, 200)
+        self.assertContains(add_project_response, "Add Project")
+
     def test_home_template_extends_base_and_shows_welcome_message(self):
-        rendered_template = render_to_string("projects/home.html")
+        rendered_template = render_to_string(
+            "projects/home.html",
+            {
+                "welcome_message": (
+                    "Welcome to the Student Project Management System"
+                ),
+            },
+        )
 
         self.assertIn(
             "Welcome to the Student Project Management System",

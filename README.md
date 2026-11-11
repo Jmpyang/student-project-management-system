@@ -1,5 +1,10 @@
 # Student Project Management System
 
+### Credentials
+Username: root
+password: root
+
+
 A Django application for submitting and managing student projects by department.
 
 ## Setup
