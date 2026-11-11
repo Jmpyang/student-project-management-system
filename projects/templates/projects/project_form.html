@@ -1,0 +1,13 @@
+{% extends "projects/base.html" %}
+
+{% block title %}{{ heading }} | Student Project Management System{% endblock %}
+
+{% block content %}
+    <h1>{{ heading }}</h1>
+    <form method="post" class="project-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save project</button>
+        <a href="{% url 'project_list' %}">Cancel</a>
+    </form>
+{% endblock %}

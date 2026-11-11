@@ -1,0 +1,135 @@
+:root {
+    color-scheme: light;
+    font-family: system-ui, sans-serif;
+    color: #1f2937;
+    background: #f3f6fa;
+}
+
+body {
+    margin: 0;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem max(1rem, calc((100% - 960px) / 2));
+    background: #17365d;
+}
+
+.site-nav a,
+.site-nav button {
+    color: #fff;
+    font: inherit;
+}
+
+.site-nav a {
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+.nav-user {
+    margin-left: auto;
+    color: #dbeafe;
+}
+
+.nav-logout {
+    margin: 0;
+}
+
+.nav-logout button {
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.button,
+button {
+    display: inline-block;
+    border: 0;
+    border-radius: 4px;
+    padding: 0.55rem 0.8rem;
+    background: #245b96;
+    color: #fff;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-danger {
+    background: #a52a2a;
+}
+
+.search-form,
+.project-form {
+    margin: 1rem 0;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.project-form p {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 32rem;
+}
+
+.project-form input,
+.project-form select,
+.project-form textarea,
+.search-form input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 32rem;
+    padding: 0.5rem;
+    font: inherit;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.project-table th,
+.project-table td {
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.project-table th {
+    background: #e2eaf4;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+.actions a + a {
+    margin-left: 0.5rem;
+}
+
+.message {
+    padding: 0.75rem;
+    border-left: 4px solid #27834b;
+    background: #e8f5ec;
+}

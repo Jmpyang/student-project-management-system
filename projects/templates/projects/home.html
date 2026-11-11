@@ -1,0 +1,9 @@
+{% extends "projects/base.html" %}
+
+{% block title %}Home | Student Project Management System{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Student Project Management System</h1>
+    <p>Browse submitted projects or sign in to add and manage a project.</p>
+    <p><a class="button" href="{% url 'project_list' %}">View projects</a></p>
+{% endblock %}
