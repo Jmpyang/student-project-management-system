@@ -1,6 +1,6 @@
 # Student Project Management System
 
-### Credentials
+### Credentials.
 Username: root
 password: root
 
