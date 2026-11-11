@@ -7,16 +7,36 @@ A Django application for submitting and managing student projects by department.
 Run the following commands from the repository root:
 
 ```bash
-python manage.py makemigrations projects
+source venv/bin/activate
+python manage.py check
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
 
 Sign in at `/accounts/login/` with the superuser credentials to add, edit, or
-delete projects. Create departments in the Django admin at `/admin/` before
-submitting projects. The project list is available at `/projects/`; its search
-box filters project titles.
+delete projects. The migration creates the Information Technology department
+if it does not already exist. Manage departments and projects in Django Admin
+at `/admin/`. The project form requires a department selection. The project
+list is available at `/projects/`; its search box filters project titles.
+
+To create an ordinary test user, open the Django shell and use Django's
+built-in user model:
+
+```bash
+python manage.py shell
+```
+
+```python
+from django.contrib.auth import get_user_model
+get_user_model().objects.create_user(
+    username="student",
+    password="replace-with-a-private-password",
+)
+```
+
+Alternatively, an administrator can create a regular user in Django Admin's
+Users section. No custom user model is used.
 
 ## Models and ORM query
 
